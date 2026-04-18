@@ -1,0 +1,2 @@
+{"priority": 1, "task": "Validate whether RPC defaults in deployment templates expose --rpc.addr beyond localhost", "blocked_on": "deployment config review"}
+{"priority": 2, "task": "Assess contract/admin RPC surfaces in crates/evm-node for similar auth gaps", "blocked_on": "next run scope"}

@@ -1,0 +1,53 @@
+{
+  "run_id": "2026-04-18-run-01",
+  "commit": "d0b8a87cbb951232d7a04c34e8875cc04265b3cb",
+  "branch": "work",
+  "default_branch": null,
+  "languages": [
+    "Rust",
+    "Solidity",
+    "TypeScript",
+    "Shell",
+    "YAML"
+  ],
+  "frameworks": [
+    "axum",
+    "tokio",
+    "reth",
+    "foundry",
+    "hardhat"
+  ],
+  "package_managers": [
+    "cargo",
+    "npm"
+  ],
+  "dependency_manifests": [
+    "Cargo.toml",
+    "Cargo.lock",
+    "package.json",
+    "package-lock.json"
+  ],
+  "infra_files": [
+    "deployments/*.yaml",
+    "deployments/Dockerfile.*",
+    "docker-bake.hcl",
+    "Makefile",
+    ".github/workflows/* (if present)"
+  ],
+  "auth_related_modules": [
+    "crates/eth-engine/src/rpc/auth.rs",
+    "crates/malachite-app/src/rpc/*",
+    "crates/remote-signer/src/*"
+  ],
+  "network_entry_points": [
+    "crates/malachite-app/src/rpc/routes.rs",
+    "crates/malachite-cli/src/metrics.rs",
+    "crates/malachite-app/src/node.rs"
+  ],
+  "hotspot_hashes": {
+    "crates/malachite-app/src/rpc/routes.rs": "4c1a990f539e22f06ccef35f71b6c8b00bc463e2201016dc8b779fa2e9878b7a",
+    "crates/malachite-app/src/rpc/handlers.rs": "c28681457f5e34630b5e700f29ba5c55471ff19d14f83d4020658a21b3310b18",
+    "crates/malachite-app/src/rpc/middleware.rs": "b44ccee8ecd54cbafc84ea0ab785b7ddd46e3ae8ad606fefd5a040719dee61e4",
+    "crates/malachite-cli/src/cmd/start.rs": "e96c84e6a9e5b36a4f2a20a2cd5df82b71631ace94e53220b19a9622c9afb069"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "run_id": "2026-04-18-run-01",
+  "attack_surface": {
+    "http_routes": [
+      "GET /consensus-state",
+      "GET /commit",
+      "GET /misbehavior-evidence",
+      "GET /proposal-monitor",
+      "GET /invalid-payloads",
+      "GET /status",
+      "GET /health",
+      "GET /version",
+      "GET /network-state",
+      "POST /persistent-peers",
+      "DELETE /persistent-peers"
+    ],
+    "admin_mutation_routes": [
+      "POST /persistent-peers",
+      "DELETE /persistent-peers"
+    ],
+    "rpc_middleware": [
+      "extract_version (Accept header only)"
+    ],
+    "cli_inputs": [
+      "--rpc.addr",
+      "--metrics",
+      "--p2p.*",
+      "--execution_*"
+    ],
+    "background_jobs": [
+      "tokio tasks spawned by node startup and rpc sync"
+    ],
+    "webhooks": [],
+    "deserialization_boundaries": [
+      "axum Json<AddOrRemovePersistentPeerBody>",
+      "Query<GetCertificateParams>"
+    ],
+    "auth_flows": [
+      "No RPC authn/authz layer in malachite-app router"
+    ]
+  },
+  "covered_files": [
+    "crates/malachite-app/src/rpc/routes.rs",
+    "crates/malachite-app/src/rpc/handlers.rs",
+    "crates/malachite-app/src/rpc/middleware.rs",
+    "crates/malachite-cli/src/cmd/start.rs",
+    "crates/remote-signer/src/client.rs"
+  ],
+  "skipped_areas": [
+    {
+      "path": "smart contracts in contracts/src",
+      "reason": "not yet reviewed this run; prioritized network admin surface first"
+    },
+    {
+      "path": "consensus-db internals",
+      "reason": "not directly reachable from unauthenticated network input in this pass"
+    }
+  ]
+}
